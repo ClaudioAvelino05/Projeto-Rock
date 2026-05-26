@@ -1,4 +1,4 @@
-<h1 align="center"> Agregador de Links
+<h1 align="center"> Dev Links
 
 <p align="center">
 Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologias WEB.
