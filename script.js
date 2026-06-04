@@ -4,6 +4,9 @@ function toggleMode() {
 
   //pegar tag img
   const img = document.querySelector("#profile img")
+  if (!img) return
+  const switchEl = document.getElementById("switch")
+  const isLight = html.classList.contains("light")
   //substituir a imagem
   if (html.classList.contains("light")) {
     //se estiver light mode, adicionar imagem light
@@ -12,7 +15,7 @@ function toggleMode() {
     //se estiver sem light mode, manter a imagem normal
     img.setAttribute("src", "./assets/avatar.jpeg")
   }
-  if (html.classList.contains("light")) {
+  if (isLight) {
     //se estiver light mode, adicionar imagem light
     img.setAttribute(
       "alt",
@@ -25,4 +28,17 @@ function toggleMode() {
       "Foto de Claudio Avelino sorrindo, usando óculos e camisa azul e gola branca, e fundo branco.",
     )
   }
+  if (switchEl)
+    switchEl.setAttribute("aria-pressed", isLight ? "true" : "false")
+}
+
+// keyboard support for the switch (Enter / Space)
+const switchEl = document.getElementById("switch")
+if (switchEl) {
+  switchEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      toggleMode()
+    }
+  })
 }
